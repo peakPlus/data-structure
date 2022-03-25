@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define MaxSize 10
+
 typedef struct
 {
     int data[MaxSize];
@@ -66,20 +67,26 @@ int LocateElem(SqList L, int e) // 在顺序表L中查找第一个元素值等�
     return 0;
 }
 
-int main()
+void printfSqList (SqList L)
 {
-    SqList L;
-    InitList(L);
-    for (int i = 0; i < MaxSize; i++)
-    {
-        ListInsert(L, i + 1, i);
-    }
-    int e;
-    ListDelete(L, 7, e);
     for (int i = 0; i < L.length; i++)
     {
-        printf("data[%d]=%d\n", i, GetElem(L, i + 1));
+        printf("data[%d]=%d\n" , i , GetElem(L, i + 1));
     }
-    printf("--------%d", LocateElem(L, 2));
+}
+
+int main()
+{
+    SqList l;
+    InitList(l);
+    for (int i = 0; i < MaxSize; i++)
+    {
+        ListInsert(l, i + 1, i);
+    }
+    printfSqList(l);
+    int e;
+    ListDelete(l, 7, e);
+    printfSqList(l);
+    printf("--------%d", LocateElem(l, 2));
     return 0;
 }

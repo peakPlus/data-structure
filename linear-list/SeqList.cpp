@@ -28,7 +28,6 @@ void IncreaseSize(SeqList &L, int len)
     free(p);
 }
 
-
 bool ListInsert(SeqList &L, int i, int e) // 在第i个位置上插入指定元素e
 {
     if (i < 1 || i > L.length + 1)
@@ -80,6 +79,14 @@ int LocateElem(SeqList L, int e) // 在顺序表L中查找第一个元素值等�
     return 0;
 }
 
+void printfSeqList (SeqList L)
+{
+    for (int i = 0; i < L.length; i++)
+    {
+        printf("data[%d]=%d\n" , i , GetElem(L, i + 1));
+    }
+}
+
 int main()
 {
     SeqList L;
@@ -91,10 +98,7 @@ int main()
     }
     int e;
     ListDelete(L, 7, e);
-    for (int i = 0; i < L.length; i++)
-    {
-        printf("data[%d]=%d\n", i, GetElem(L, i+1));
-    }
+    printfSeqList(L); 
     printf("------------------%d", LocateElem(L,2));
     return 0;
 }
